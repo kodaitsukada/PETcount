@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字入力フォーム</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // リセットボタンがクリックされた時の処理
+        function resetForm() {
+            // フォーム内の数字の入力欄に0を設定
+            document.getElementById("number").value = 0;
+
+            // フォームを送信
+            document.forms["numberForm"].submit();
+        }
+    </script>
+</head>
+<body>
+
+    <section id="contact-form" class="section">
+        <div class="container">
+            <h2>ペットボトルカウント</h2>
+
+            <!-- フォーム -->
+            <form name="numberForm" action="https://script.google.com/macros/s/AKfycbyoTvbATIYBZWZBPT_Ff156cO4Sr1yZ32d2InQc71cW7sZkqm1HIwD7ZhHsE9o7SDVBnw/exec" method="POST">
+                <div class="form-group">
+                    <input type="number" id="number" name="number" placeholder="本数を入力" required>
+                </div>
+                <button type="submit" class="btn-submit">送信</button>
+                <button type="button" class="btn-reset" onclick="resetForm()">リセット</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
