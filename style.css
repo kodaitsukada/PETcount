@@ -1,104 +1,147 @@
-/* リセットCSS */
+/* 全体のリセット */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* 全体のスタイル */
-body {
-    font-family: Arial, sans-serif;
+  }
+  
+  /* 全体のスタイル */
+  body {
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
     color: #333;
-
-    /* Flexboxを使って中央に配置 */
+  
+    /* 親要素全体を中央に配置 */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 画面全体の高さを指定 */
-}
-
-/* コンテナ */
-.container {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* セクション */
-.section {
+    justify-content: center; /* 水平方向中央 */
+    align-items: center; /* 垂直方向中央 */
+    flex-direction: column;
+    gap: 30px; /* セクション間のスペース */
+    height: 100vh;
+    padding: 10px;
+  }
+  
+  /* ヘッダー部分 */
+  .site-description {
     text-align: center;
-}
-
-/* 見出し */
-h2 {
-    font-size: 2em;
     margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-/* フォーム */
-form {
+    h1 {
+      font-size: 2.2em;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 1em;
+      color: #555;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* 親コンテナを横並びにする */
+.container-wrapper {
+    display: flex;
+    justify-content: space-around; /* コンテナ間のスペースを均等に配置 */
+    align-items: flex-start;
+    gap: 20px; /* コンテナ間の余白 */
+    width: 50%;
+    padding: 10px;
+    flex-wrap: wrap; /* 画面が狭くなった場合に折り返し */
+  }
+  
+  /* コンテナ */
+  .container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .container:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+  }
+  
+  
+  /* 見出しスタイル */
+  h2 {
+    font-size: 1.6em;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  /* フォーム */
+  form {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-label {
-    display: block;
-    font-size: 1.2em;
-    margin-bottom: 5px;
-}
-
-input[type="number"] {
+    gap: 15px;
     width: 100%;
-    padding: 10px;
+  }
+  
+  /* 入力エリア */
+  input[type="number"] {
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
     font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* 送信ボタン */
-button[type="submit"] {
-    padding: 12px 25px;
+    transition: all 0.2s ease;
+  }
+  
+  input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* ボタンのスタイル */
+  button[type="submit"],
+  button[type="button"] {
+    padding: 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  button[type="submit"] {
     background-color: #007BFF;
-    color: white;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-bottom: 10px; /* ボタン間のスペース */
-}
-
-button[type="submit"]:hover {
+  }
+  
+  button[type="submit"]:hover {
     background-color: #0056b3;
-}
-
-/* リセットボタン */
-button[type="button"] {
-    padding: 12px 25px;
-    background-color: #FF5733; /* 赤色に変更 */
-    color: white;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="button"]:hover {
-    background-color: #e04e1a; /* ホバー時の色変更 */
-}
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  button[type="button"] {
+    background-color: #FF5733;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #e04e1a;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* レスポンシブ対応 */
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.4em;
+    }
+  
+    input[type="number"] {
+      font-size: 0.9em;
+    }
+  
+    button[type="submit"],
+    button[type="button"] {
+      font-size: 0.9em;
+    }
+  }
+  
